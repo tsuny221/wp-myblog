@@ -1,0 +1,30 @@
+.slider {
+  position: relative;
+  z-index: -1;
+  top: 0;
+  overflow: hidden; //画像がはみ出るのを防ぐ
+
+  &__item {
+    opacity: 0;
+    transform: scale(1.2);
+    transition: opacity 1.9s, transform 5s;
+  }
+
+  &__text {
+    z-index: 1;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    font-size: 100px;
+    font-weight: 600;
+    color: $cWhite;
+    transition: opacity 1.9s;
+    transition-delay: 3s;
+  }
+}
+.inview {
+  opacity: 1;
+  transform: none;
+}

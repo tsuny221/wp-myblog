@@ -1,0 +1,25 @@
+/******************************************************************
+
+Stylesheet: 600px以上のタブレットやモニタで適用
+
+******************************************************************/
+.flex {
+  flex-direction: row; //二つ横ならびに
+  flex-wrap: wrap; //二つ以上になると折り返し
+}
+
+.footer {
+  & .logo {
+    justify-content: flex-start;
+  }
+
+  &__li {
+    margin-left: 0;
+    margin-right: 30px;
+  }
+}
+
+.slider {
+  width: 100%;
+  height: 400px;
+}

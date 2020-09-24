@@ -1,0 +1,235 @@
+/******************************************************************
+
+Stylesheet: ベーススタイル
+
+******************************************************************/
+body {
+  font-family: "Kameron", "Noto Sans JP", sans-serif;
+}
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+.font-sm {
+  font-size: 14px;
+}
+.font-md {
+  font-size: 17px;
+}
+.font-lr {
+  font-size: 17px;
+}
+.font-lg {
+  font-size: 25px;
+}
+.mb-sm {
+  margin-bottom: 16px !important;
+}
+.mb-lg {
+  margin-bottom: 80px !important;
+}
+.pb-sm {
+  padding-bottom: 16px !important;
+}
+.pb-lg {
+  padding-bottom: 80px !important;
+}
+.content-width {
+  width: 90%;
+  margin: 0 auto;
+  max-width: $contentMaxWidth;
+}
+.main-title {
+  @extend .font-md;
+  letter-spacing: 0.5em;
+  font-weight: 600;
+  color: $cMainTitle;
+  margin-bottom: 0;
+  display: block;
+}
+.sub-title {
+  @extend .font-sm;
+  letter-spacing: 0.5em;
+  color: $cSubTitle;
+}
+//----logo----//
+.logo {
+  font-size: 42px;
+  display: flex;
+
+  &__img {
+    width: 0.7em;
+  }
+}
+//----flex----//
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+//----色----//
+
+//----領域サイズ----//
+#main-content {
+  position: relative;
+  z-index: 0;
+}
+
+#container {
+  background-color: $cWhite; //後ろに隠れたモバイルメニューのロゴを隠す
+  position: relative;
+  z-index: 10; //後ろに隠れたモバイルメニューのロゴを隠す
+  transition: transform 0.8s;
+}
+//----header----//
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $navHeight;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  z-index: 100;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @extend .content-width;
+  }
+  &__nav {
+    display: none;
+  }
+
+  &__ul {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  &__li {
+    margin-left: 20px;
+
+    & > a {
+      color: $cBlack;
+      text-decoration: none !important;
+      text-transform: uppercase; //大文字表記
+    }
+  }
+
+  & .logo {
+    font-size: 50px;
+    justify-content: center;
+  }
+}
+//----main----//
+.slider {
+  width: 100%;
+  height: 300px;
+}
+.main {
+  background-color: $cMainColor;
+  height: 100vh;
+  position: relative;
+  box-shadow: 0 −５px 3px rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
+//----footer----//
+.footer {
+  padding: 60px 0;
+  @extend .content-width;
+
+  &__nav {
+    @extend .flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__ul {
+    @extend .flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  &__li {
+    padding: 0;
+    margin: 10px;
+
+    & > a {
+      color: $cSubTitle;
+    }
+  }
+  //footer内のロゴ
+  & .logo {
+    font-size: 38px;
+    justify-content: center;
+  }
+}
+
+//----サイドバー----//
+.side {
+  display: none; //1280upで表示
+  position: fixed;
+  top: 70%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease-in;
+
+  // & .tween-animate-title {
+  //   color: $cBlack;
+  //   text-decoration: none !important;
+  //   margin: 0 40px;
+  //   vertical-align: middle; //inline要素に指定する
+  //   letter-spacing: 2px;
+  // }
+
+  &.left {
+    left: 50px;
+
+    &.inview {
+      left: 50px;
+    }
+
+    & .side__inner {
+      transform-origin: top left; //文字の左上基準の回転にする
+      transform: rotate(-90deg);
+    }
+  }
+  &.right {
+    right: 50px;
+
+    &.inview {
+      right: 50px;
+    }
+
+    & .side__inner {
+      transform-origin: top right; //文字の左上基準の回転にする
+      transform: rotate(90deg);
+    }
+  }
+}
+.icon {
+  position: relative;
+
+  // @include p-base($left: -20px, $top: 50%, $width: 1em, $height: 1em) {
+  //   transform: translateY(-50%);
+  //   background-position: center;
+  //   background-repeat: no-repeat;
+  //   background-size: contain;
+  // }
+
+  &.twitter {
+    &::before {
+      background-image: url(../images/twitter.svg);
+    }
+  }
+  &.fb {
+    &::before {
+      background-image: url(../images/facebook.svg);
+    }
+  }
+}
