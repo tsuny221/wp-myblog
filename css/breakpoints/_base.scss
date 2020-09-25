@@ -4,26 +4,57 @@ Stylesheet: ベーススタイル
 
 ******************************************************************/
 body {
-  font-family: "Kameron", "Noto Sans JP", sans-serif;
+  font-family: quasimoda, "Noto Sans Japanese", sans-serif;
+  font-size: 14px;
+  color: #000;
+  line-height: 1.8;
+  letter-spacing: 0.1em;
+  text-align: left;
+  font-weight: 300;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+
+  &:hover {
+    color: #000;
+    text-decoration: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+  }
 }
 img {
   max-width: 100%;
   vertical-align: bottom;
 }
+.font-xs {
+  font-size: 10px;
+}
 .font-sm {
-  font-size: 14px;
+  font-size: 12px;
 }
 .font-md {
-  font-size: 17px;
+  font-size: 13px;
 }
 .font-lr {
-  font-size: 17px;
+  font-size: 18px;
 }
 .font-lg {
-  font-size: 25px;
+  font-size: 28px;
 }
 .mb-sm {
   margin-bottom: 16px !important;
+}
+.mb-md {
+  margin-bottom: 36px !important;
 }
 .mb-lg {
   margin-bottom: 80px !important;
@@ -40,17 +71,20 @@ img {
   max-width: $contentMaxWidth;
 }
 .main-title {
-  @extend .font-md;
-  letter-spacing: 0.5em;
-  font-weight: 600;
+  @extend .font-lr;
+
+  letter-spacing: 0.16em;
+  font-weight: normal;
   color: $cMainTitle;
-  margin-bottom: 0;
   display: block;
+  text-transform: uppercase;
 }
 .sub-title {
-  @extend .font-sm;
-  letter-spacing: 0.5em;
+  @extend .font-xs;
+  font-weight: 400;
+  letter-spacing: 0.2em;
   color: $cSubTitle;
+  text-transform: uppercase;
 }
 //----logo----//
 .logo {
@@ -82,6 +116,11 @@ img {
   transition: transform 0.8s;
 }
 //----header----//
+
+header {
+  opacity: 0;
+  transition: all 0.2s;
+}
 .header {
   position: fixed;
   top: 0;
@@ -126,12 +165,13 @@ img {
   }
 }
 //----main----//
+//画面サイズごとに高さ変更
 .slider {
-  width: 100%;
   height: 300px;
 }
 .main {
-  background-color: $cMainColor;
+  margin-top: 300px;
+  background-color: $cWhite;
   height: 100vh;
   position: relative;
   box-shadow: 0 −５px 3px rgba(0, 0, 0, 0.3);
@@ -188,7 +228,7 @@ img {
   // }
 
   &.left {
-    left: 50px;
+    left: -50px;
 
     &.inview {
       left: 50px;
@@ -200,7 +240,7 @@ img {
     }
   }
   &.right {
-    right: 50px;
+    right: -50px;
 
     &.inview {
       right: 50px;

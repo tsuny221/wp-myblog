@@ -1,6 +1,7 @@
 .slider {
-  position: relative;
-  z-index: -1;
+  width: 100%;
+  position: fixed;
+  z-index: -2;
   top: 0;
   overflow: hidden; //画像がはみ出るのを防ぐ
 

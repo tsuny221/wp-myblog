@@ -1,19 +1,19 @@
 $cMenuClose: $cBlack;
 $cMenuOpen: $cBlack;
+$cMenuBg: rgba(255, 255, 255, 0.9);
 
 .mobile-menu {
   position: fixed;
-  right: 0;
-  top: 60px;
-  width: 300px;
-
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
   & .logo {
-    padding: 0px 40px;
+    display: inline-block;
     font-size: 38px;
   }
 
   &__btn {
-    display: none;
     background-color: unset;
     border: none;
     outline: none !important;
@@ -22,7 +22,7 @@ $cMenuOpen: $cBlack;
     & > span {
       background-color: $cMenuClose;
       width: 35px;
-      height: 2px;
+      height: 1px;
       display: block;
       margin-bottom: 9px;
       transition: transform 0.7s;
@@ -38,7 +38,7 @@ $cMenuOpen: $cBlack;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: $cMenuBg;
     opacity: 0;
     visibility: hidden; //クリックにも反応しないよう完全に隠す（アニメーションは動作しないのでopacityも必要）
     transition: opacity 1s;
@@ -51,7 +51,7 @@ $cMenuOpen: $cBlack;
     list-style: none;
     display: block;
     transform: translateX(200px);
-    padding: 0 40px;
+    @extend .mb-md;
     transition: transform 0.9s, opacity 0.5s;
     opacity: 0;
   }
@@ -64,12 +64,8 @@ $cMenuOpen: $cBlack;
 }
 
 .menu-open {
-  & #container {
-    transform: translate(-400px, 0px);
-    // box-shadow: 0 8px 40px -10px rgba(0, 0, 0, 0.8);
-  }
-
   & .mobile-menu {
+    z-index: 99;
     &__cover {
       opacity: 1;
       visibility: visible;
