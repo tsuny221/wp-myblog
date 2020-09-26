@@ -8,6 +8,7 @@ $cMenuBg: rgba(255, 255, 255, 0.9);
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+
   & .logo {
     display: inline-block;
     font-size: 38px;
@@ -20,15 +21,19 @@ $cMenuBg: rgba(255, 255, 255, 0.9);
     cursor: pointer;
 
     & > span {
-      background-color: $cMenuClose;
+      position: relative;
       width: 35px;
-      height: 1px;
       display: block;
-      margin-bottom: 9px;
-      transition: transform 0.7s;
+      transition: all 0.8s ease;
+      transform-origin: 80% 50% 0;
 
-      &:last-child {
-        margin-bottom: 0;
+      & > svg {
+        position: absolute;
+        top: -30px;
+        right: -30px;
+        fill: #111;
+        width: 70px;
+        transform: rotate(3deg);
       }
     }
   }
@@ -66,7 +71,9 @@ $cMenuBg: rgba(255, 255, 255, 0.9);
 .menu-open {
   & .mobile-menu {
     z-index: 99;
+
     &__cover {
+      z-index: 98;
       opacity: 1;
       visibility: visible;
     }
@@ -74,27 +81,21 @@ $cMenuBg: rgba(255, 255, 255, 0.9);
       transform: none;
       opacity: 1;
 
-      @for $i from 1 through 5 {
+      @for $i from 1 through 4 {
         &:nth-child(#{$i}) {
           transition-delay: $i * 0.07s;
         }
       }
     }
     &__btn {
+      z-index: 99 !important;
       & > span {
-        background-color: $cMenuOpen;
-
         &:nth-child(1) {
-          transition-delay: 70ms;
-          transform: translateY(11px) rotate(135deg);
+          transform: rotate(-25deg);
         }
         &:nth-child(2) {
-          transition-delay: 0s;
-          transform: translateX(-18px) scaleX(0);
-        }
-        &:nth-child(3) {
-          transition-delay: 140ms;
-          transform: translateY(-11px) rotate(-135deg);
+          right: 2px;
+          transform: rotate(25deg);
         }
       }
     }

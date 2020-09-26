@@ -21,19 +21,23 @@
 }
 
 .mobile-menu__btn > span {
-  background-color: #000;
+  position: relative;
   width: 35px;
-  height: 1px;
   display: block;
-  margin-bottom: 9px;
-  -webkit-transition: -webkit-transform 0.7s;
-  transition: -webkit-transform 0.7s;
-  transition: transform 0.7s;
-  transition: transform 0.7s, -webkit-transform 0.7s;
+  -webkit-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+  -webkit-transform-origin: 80% 50% 0;
+          transform-origin: 80% 50% 0;
 }
 
-.mobile-menu__btn > span:last-child {
-  margin-bottom: 0;
+.mobile-menu__btn > span > svg {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  fill: #111;
+  width: 70px;
+  -webkit-transform: rotate(3deg);
+          transform: rotate(3deg);
 }
 
 .mobile-menu__cover {
@@ -78,6 +82,7 @@
 }
 
 .menu-open .mobile-menu__cover {
+  z-index: 98;
   opacity: 1;
   visibility: visible;
 }
@@ -108,34 +113,19 @@
           transition-delay: 0.28s;
 }
 
-.menu-open .mobile-menu__item:nth-child(5) {
-  -webkit-transition-delay: 0.35s;
-          transition-delay: 0.35s;
-}
-
-.menu-open .mobile-menu__btn > span {
-  background-color: #000;
+.menu-open .mobile-menu__btn {
+  z-index: 99 !important;
 }
 
 .menu-open .mobile-menu__btn > span:nth-child(1) {
-  -webkit-transition-delay: 70ms;
-          transition-delay: 70ms;
-  -webkit-transform: translateY(11px) rotate(135deg);
-          transform: translateY(11px) rotate(135deg);
+  -webkit-transform: rotate(-25deg);
+          transform: rotate(-25deg);
 }
 
 .menu-open .mobile-menu__btn > span:nth-child(2) {
-  -webkit-transition-delay: 0s;
-          transition-delay: 0s;
-  -webkit-transform: translateX(-18px) scaleX(0);
-          transform: translateX(-18px) scaleX(0);
-}
-
-.menu-open .mobile-menu__btn > span:nth-child(3) {
-  -webkit-transition-delay: 140ms;
-          transition-delay: 140ms;
-  -webkit-transform: translateY(-11px) rotate(-135deg);
-          transform: translateY(-11px) rotate(-135deg);
+  right: 2px;
+  -webkit-transform: rotate(25deg);
+          transform: rotate(25deg);
 }
 
 .slider {
@@ -144,6 +134,13 @@
   z-index: -2;
   top: 0;
   overflow: hidden;
+}
+
+.slider img {
+  height: 100vh;
+  width: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .slider__item {
@@ -164,13 +161,19 @@
   left: 50%;
   -webkit-transform: translate(-50%, -50%) !important;
           transform: translate(-50%, -50%) !important;
-  font-size: 100px;
-  font-weight: 600;
-  color: white;
+  font-size: 50px;
+  color: rgba(0, 0, 0, 0.8);
   -webkit-transition: opacity 1.9s;
   transition: opacity 1.9s;
   -webkit-transition-delay: 3s;
           transition-delay: 3s;
+  letter-spacing: 0.5em;
+  text-align: center;
+}
+
+.slider__text > span {
+  font-size: 15px;
+  letter-spacing: 1em;
 }
 
 .inview {
@@ -186,12 +189,13 @@ Stylesheet: ベーススタイル
 ******************************************************************/
 body {
   font-family: quasimoda, "Noto Sans Japanese", sans-serif;
-  font-size: 14px;
-  color: #000;
-  line-height: 1.8;
+  color: #111;
+  font-size: 12px;
+  line-height: 2;
+  color: #111;
   letter-spacing: 0.1em;
   text-align: left;
-  font-weight: 300;
+  font-weight: normal;
 }
 
 a {
@@ -219,16 +223,16 @@ img {
   vertical-align: bottom;
 }
 
-.font-xs, .sub-title {
+.font-xs, .sub-title, .blog__date {
   font-size: 10px;
 }
 
-.font-sm {
-  font-size: 12px;
+.font-sm, .blog__title {
+  font-size: 13px;
 }
 
-.font-md {
-  font-size: 13px;
+.font-md, .blog__category {
+  font-size: 15px;
 }
 
 .font-lr, .main-title {
@@ -239,16 +243,24 @@ img {
   font-size: 28px;
 }
 
-.mb-sm {
+.mb-xs, .blog__title, .blog__text {
+  margin-bottom: 3px !important;
+}
+
+.mb-sm, .blog__date {
   margin-bottom: 16px !important;
 }
 
-.mb-md, .mobile-menu__item {
-  margin-bottom: 36px !important;
+.mb-md, .mobile-menu__item, .blog__head, .blog__item {
+  margin-bottom: 45px !important;
 }
 
 .mb-lg {
-  margin-bottom: 80px !important;
+  margin-bottom: 100px !important;
+}
+
+.pd-section, .blog {
+  padding: 80px 0px !important;
 }
 
 .pb-sm {
@@ -265,18 +277,23 @@ img {
   max-width: 1070px;
 }
 
+.content-width-full, .main__inner {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1070px;
+}
+
 .main-title {
+  text-align: center;
   letter-spacing: 0.16em;
-  font-weight: normal;
-  color: #535353;
+  color: #000;
   display: block;
   text-transform: uppercase;
 }
 
 .sub-title {
-  font-weight: 400;
   letter-spacing: 0.2em;
-  color: #535353;
+  color: #000;
   text-transform: uppercase;
 }
 
@@ -291,7 +308,7 @@ img {
   width: 0.7em;
 }
 
-.flex, .footer__nav, .footer__ul {
+.flex, .blog__item, .footer__nav, .footer__ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -303,13 +320,12 @@ img {
 
 #main-content {
   position: relative;
-  z-index: 0;
+  z-index: 1;
 }
 
 #container {
   background-color: white;
   position: relative;
-  z-index: 10;
   -webkit-transition: -webkit-transform 0.8s;
   transition: -webkit-transform 0.8s;
   transition: transform 0.8s;
@@ -327,15 +343,18 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100px;
-  background-color: transparent;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.9);
+  -webkit-box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+          box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  z-index: 100;
+  z-index: 90;
+  border-bottom: 1px dashed #000;
 }
 
 .header__inner {
@@ -367,6 +386,7 @@ header {
 }
 
 .header__li {
+  text-transform: uppercase;
   margin-left: 20px;
 }
 
@@ -384,21 +404,71 @@ header {
 }
 
 .slider {
-  height: 300px;
+  height: 100vh;
 }
 
 .main {
-  margin-top: 300px;
+  margin-top: 100vh;
   background-color: white;
-  height: 100vh;
   position: relative;
   -webkit-box-shadow: 0 −５px 3px rgba(0, 0, 0, 0.3);
           box-shadow: 0 −５px 3px rgba(0, 0, 0, 0.3);
-  z-index: -1;
+  z-index: 1;
+}
+
+.blog__item {
+  position: relative;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.blog__category {
+  text-transform: uppercase;
+  position: absolute;
+  top: -20px;
+  left: 5%;
+}
+
+.blog__img {
+  height: 200px;
+  -ms-flex-preferred-size: 60%;
+      flex-basis: 60%;
+}
+
+.blog__img > img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.blog__cont {
+  -ms-flex-preferred-size: 40%;
+      flex-basis: 40%;
+  padding: 20px 25px 0;
+}
+
+.blog__title {
+  color: #111;
+}
+
+.blog__text {
+  color: #808085;
 }
 
 .footer {
+  position: relative;
+  border-top: 1px dashed #000;
   padding: 60px 0;
+}
+
+.footer__scissors {
+  font-size: 20px;
+  z-index: 10;
+  position: absolute;
+  top: -21px;
+  left: -10px;
 }
 
 .footer__nav {
@@ -418,12 +488,13 @@ header {
 }
 
 .footer__li {
+  text-transform: uppercase;
   padding: 0;
   margin: 10px;
 }
 
 .footer__li > a {
-  color: #535353;
+  color: #000;
 }
 
 .footer .logo {
@@ -434,6 +505,7 @@ header {
 }
 
 .side {
+  z-index: 90;
   display: none;
   position: fixed;
   top: 70%;
@@ -441,6 +513,11 @@ header {
           transform: translateY(-50%);
   -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
+}
+
+.side .scissors {
+  font-size: 15px;
+  vertical-align: middle;
 }
 
 .side.left {
@@ -499,13 +576,18 @@ Stylesheet: 480px以上(スマホの横向き)のモニタで適用
 Stylesheet: 600px以上のタブレットやモニタで適用
 
 ******************************************************************/
-  .flex, .footer__nav, .footer__ul {
+  .flex, .blog__item, .footer__nav, .footer__ul {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+  }
+  .content-width-full, .main__inner {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1070px;
   }
   .footer .logo {
     -webkit-box-pack: start;
@@ -516,11 +598,8 @@ Stylesheet: 600px以上のタブレットやモニタで適用
     margin-left: 0;
     margin-right: 30px;
   }
-  .slider {
-    height: 400px;
-  }
-  .main {
-    margin-top: 400px;
+  .blog__img {
+    height: 300px;
   }
 }
 
@@ -560,11 +639,8 @@ Stylesheet: 1280px以上のモニタで適用
     -webkit-transform: none !important;
             transform: none !important;
   }
-  .slider {
-    height: 600px;
-  }
-  .main {
-    margin-top: 600px;
+  .blog__img {
+    height: 350px;
   }
 }
 

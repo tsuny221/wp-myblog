@@ -7,6 +7,11 @@ Stylesheet: 600px以上のタブレットやモニタで適用
   flex-direction: row; //二つ横ならびに
   flex-wrap: wrap; //二つ以上になると折り返し
 }
+.content-width-full {
+  width: 90%;
+  margin: 0 auto;
+  max-width: $contentMaxWidth;
+}
 
 .footer {
   & .logo {
@@ -19,9 +24,6 @@ Stylesheet: 600px以上のタブレットやモニタで適用
   }
 }
 
-.slider {
-  height: 400px;
-}
-.main {
-  margin-top: 400px;
+.blog__img {
+  height: 300px;
 }

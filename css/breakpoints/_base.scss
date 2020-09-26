@@ -5,12 +5,13 @@ Stylesheet: ベーススタイル
 ******************************************************************/
 body {
   font-family: quasimoda, "Noto Sans Japanese", sans-serif;
-  font-size: 14px;
-  color: #000;
-  line-height: 1.8;
+  color: #111;
+  font-size: 12px;
+  line-height: 2;
+  color: #111;
   letter-spacing: 0.1em;
   text-align: left;
-  font-weight: 300;
+  font-weight: normal;
 }
 
 a {
@@ -39,10 +40,10 @@ img {
   font-size: 10px;
 }
 .font-sm {
-  font-size: 12px;
+  font-size: 13px;
 }
 .font-md {
-  font-size: 13px;
+  font-size: 15px;
 }
 .font-lr {
   font-size: 18px;
@@ -50,14 +51,20 @@ img {
 .font-lg {
   font-size: 28px;
 }
+.mb-xs {
+  margin-bottom: 3px !important;
+}
 .mb-sm {
   margin-bottom: 16px !important;
 }
 .mb-md {
-  margin-bottom: 36px !important;
+  margin-bottom: 45px !important;
 }
 .mb-lg {
-  margin-bottom: 80px !important;
+  margin-bottom: 100px !important;
+}
+.pd-section {
+  padding: 80px 0px !important;
 }
 .pb-sm {
   padding-bottom: 16px !important;
@@ -70,18 +77,21 @@ img {
   margin: 0 auto;
   max-width: $contentMaxWidth;
 }
+.content-width-full {
+  width: 100%;
+  margin: 0 auto;
+  max-width: $contentMaxWidth;
+}
 .main-title {
   @extend .font-lr;
-
+  text-align: center;
   letter-spacing: 0.16em;
-  font-weight: normal;
   color: $cMainTitle;
   display: block;
   text-transform: uppercase;
 }
 .sub-title {
   @extend .font-xs;
-  font-weight: 400;
   letter-spacing: 0.2em;
   color: $cSubTitle;
   text-transform: uppercase;
@@ -101,18 +111,16 @@ img {
   flex-direction: column;
 }
 
-//----色----//
-
 //----領域サイズ----//
+
 #main-content {
   position: relative;
-  z-index: 0;
+  z-index: 1;
 }
 
 #container {
   background-color: $cWhite; //後ろに隠れたモバイルメニューのロゴを隠す
   position: relative;
-  z-index: 10; //後ろに隠れたモバイルメニューのロゴを隠す
   transition: transform 0.8s;
 }
 //----header----//
@@ -127,10 +135,12 @@ header {
   left: 0;
   width: 100%;
   height: $navHeight;
-  background-color: transparent;
+  background-color: rgba($color: $cWhite, $alpha: 0.9);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: center;
-  z-index: 100;
+  z-index: 90;
+  border-bottom: 1px dashed $cBlack;
 
   &__inner {
     display: flex;
@@ -150,6 +160,7 @@ header {
     list-style: none;
   }
   &__li {
+    text-transform: uppercase;
     margin-left: 20px;
 
     & > a {
@@ -167,20 +178,79 @@ header {
 //----main----//
 //画面サイズごとに高さ変更
 .slider {
-  height: 300px;
+  height: 100vh;
 }
 .main {
-  margin-top: 300px;
+  margin-top: 100vh;
   background-color: $cWhite;
-  height: 100vh;
   position: relative;
   box-shadow: 0 −５px 3px rgba(0, 0, 0, 0.3);
-  z-index: -1;
+  z-index: 1;
+
+  &__inner {
+    @extend .content-width-full;
+  }
+}
+.blog {
+  &__head {
+    @extend .mb-md;
+  }
+  @extend .pd-section;
+
+  &__item {
+    position: relative;
+    @extend .flex;
+    justify-content: space-between;
+    @extend .mb-md;
+  }
+  &__category {
+    @extend .font-md;
+    text-transform: uppercase;
+    position: absolute;
+    top: -20px;
+    left: 5%;
+  }
+  &__img {
+    height: 200px; //高さは画面の大きさで変更
+    flex-basis: 60%;
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__cont {
+    flex-basis: 40%;
+    padding: 20px 25px 0;
+  }
+  &__title {
+    @extend .mb-xs;
+    @extend .font-sm;
+    color: #111;
+  }
+  &__date {
+    @extend .mb-sm;
+    @extend .font-xs;
+  }
+  &__text {
+    color: $cCaption;
+    @extend .mb-xs;
+  }
 }
 //----footer----//
 .footer {
+  position: relative;
+  border-top: 1px dashed $cBlack;
   padding: 60px 0;
   @extend .content-width;
+
+  &__scissors {
+    font-size: 20px;
+    z-index: 10;
+    position: absolute;
+    top: -21px;
+    left: -10px;
+  }
 
   &__nav {
     @extend .flex;
@@ -197,6 +267,7 @@ header {
   }
 
   &__li {
+    text-transform: uppercase;
     padding: 0;
     margin: 10px;
 
@@ -213,6 +284,7 @@ header {
 
 //----サイドバー----//
 .side {
+  z-index: 90;
   display: none; //1280upで表示
   position: fixed;
   top: 70%;
@@ -226,7 +298,10 @@ header {
   //   vertical-align: middle; //inline要素に指定する
   //   letter-spacing: 2px;
   // }
-
+  .scissors {
+    font-size: 15px;
+    vertical-align: middle;
+  }
   &.left {
     left: -50px;
 
