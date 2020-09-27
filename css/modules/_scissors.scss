@@ -1,0 +1,39 @@
+.footer__scissors {
+  position: relative;
+  width: 100%;
+  & > div {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    animation: kf-scissors 15s linear infinite, kf-rotate 0.8s ease-in infinite;
+  }
+}
+
+@keyframes kf-scissors {
+  0% {
+    opacity: 0;
+    left: 0%;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    left: 100%;
+  }
+}
+
+@keyframes kf-rotate {
+  0% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(5deg);
+  }
+}

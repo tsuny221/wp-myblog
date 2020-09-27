@@ -11,17 +11,6 @@ $(function () {
   //   pauseOnDotsHover: false,
   // });
 
-  // フェードイン
-  // リストを非表示
-  $(".fadein").hide();
-  // 繰り返し処理
-  $(".fadein").each(function (i) {
-    // 遅延させてフェードイン
-    $(this)
-      .delay(800 * i)
-      .fadeIn(1000);
-  });
-
   // スクロールでトップに戻る
   // #back-to-topを消す
   $("#back-to-top").hide();

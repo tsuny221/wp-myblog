@@ -84,7 +84,6 @@ img {
 }
 .main-title {
   @extend .font-lr;
-  text-align: center;
   letter-spacing: 0.16em;
   color: $cMainTitle;
   display: block;
@@ -98,11 +97,10 @@ img {
 }
 //----logo----//
 .logo {
-  font-size: 42px;
   display: flex;
 
   &__img {
-    width: 0.7em;
+    max-width: 100px;
   }
 }
 //----flex----//
@@ -113,16 +111,12 @@ img {
 
 //----領域サイズ----//
 
-#main-content {
-  position: relative;
-  z-index: 1;
-}
-
 #container {
   background-color: $cWhite; //後ろに隠れたモバイルメニューのロゴを隠す
   position: relative;
   transition: transform 0.8s;
 }
+
 //----header----//
 
 header {
@@ -173,19 +167,24 @@ header {
   & .logo {
     font-size: 50px;
     justify-content: center;
+    padding-bottom: 5px;
   }
 }
 //----main----//
+
 //画面サイズごとに高さ変更
 .slider {
-  height: 100vh;
+  height: 80vh;
+  &__catch {
+    width: 200px;
+    font-size: 10px;
+  }
 }
 .main {
-  margin-top: 100vh;
-  background-color: $cWhite;
+  margin-top: 80vh;
+
   position: relative;
   box-shadow: 0 −５px 3px rgba(0, 0, 0, 0.3);
-  z-index: 1;
 
   &__inner {
     @extend .content-width-full;
@@ -193,7 +192,8 @@ header {
 }
 .blog {
   &__head {
-    @extend .mb-md;
+    @extend .mb-lg;
+    text-align: center;
   }
   @extend .pd-section;
 
@@ -201,8 +201,10 @@ header {
     position: relative;
     @extend .flex;
     justify-content: space-between;
-    @extend .mb-md;
+    @extend .mb-lg;
+    transition: all 1.5s ease;
   }
+
   &__category {
     @extend .font-md;
     text-transform: uppercase;
@@ -211,7 +213,8 @@ header {
     left: 5%;
   }
   &__img {
-    height: 200px; //高さは画面の大きさで変更
+    z-index: 2;
+    height: 350px; //高さは画面の大きさで変更
     flex-basis: 60%;
     & > img {
       width: 100%;
@@ -246,7 +249,7 @@ header {
 
   &__scissors {
     font-size: 20px;
-    z-index: 10;
+    z-index: 1;
     position: absolute;
     top: -21px;
     left: -10px;
@@ -266,7 +269,8 @@ header {
     list-style: none;
   }
 
-  &__li {
+  &__li,
+  &__copyright {
     text-transform: uppercase;
     padding: 0;
     margin: 10px;
@@ -275,16 +279,19 @@ header {
       color: $cSubTitle;
     }
   }
+
   //footer内のロゴ
   & .logo {
     font-size: 38px;
     justify-content: center;
+    @extend .mb-sm;
   }
 }
 
 //----サイドバー----//
 .side {
-  z-index: 90;
+  text-transform: uppercase;
+  z-index: 1;
   display: none; //1280upで表示
   position: fixed;
   top: 70%;

@@ -1,0 +1,10 @@
+.scroll-up {
+  opacity: 0;
+  transform: translateY(50px);
+}
+.up {
+  opacity: 1;
+  transform: none;
+
+  transition: opacity 0.5s;
+}

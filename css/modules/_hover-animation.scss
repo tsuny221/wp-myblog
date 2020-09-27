@@ -1,0 +1,9 @@
+.hover-animation {
+  overflow: hidden;
+  & > img {
+    transition: transform 1.2s ease;
+  }
+  & > img:hover {
+    transform: scale(1.2, 1.2);
+  }
+}
