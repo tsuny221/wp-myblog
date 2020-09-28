@@ -1,0 +1,53 @@
+.pop > span {
+  @include animation(
+    $name: kf-animate-pop,
+    $duration: 0.5s,
+    $iteration-count: 1,
+    $fill-mode: both
+  );
+
+  @for $i from 1 through 30 {
+    &:nth-child(#{$i}) {
+      animation-delay: $i * 0.5s;
+    }
+  }
+}
+
+@keyframes kf-animate-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.flash > span {
+  @include animation(
+    $name: kf-animate-flash,
+    $duration: 3s,
+    $iteration-count: infinite
+  );
+
+  @for $i from 1 through 30 {
+    &:nth-child(#{$i}) {
+      animation-delay: $i * 0.1s;
+    }
+  }
+}
+
+@keyframes kf-animate-flash {
+  40%,
+  60% {
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+
+  50% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}

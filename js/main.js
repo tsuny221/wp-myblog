@@ -1,16 +1,10 @@
-$(function () {
-  // $(".slide").slick({
-  //   arrows: false,
-  //   dots: false,
-  //   autoplay: true,
-  //   autoplaySpeed: 5000,
-  //   speed: 1500,
-  //   fade: true,
-  //   pauseOnFocus: false,
-  //   pauseOnHover: false,
-  //   pauseOnDotsHover: false,
-  // });
+//ローディング画面
+$(window).on("load", function () {
+  $(".loading").fadeOut();
+  $("#global-container").css({ cssText: "opacity: 1 !important;" });
+});
 
+$(function () {
   // スクロールでトップに戻る
   // #back-to-topを消す
   $("#back-to-top").hide();
@@ -37,10 +31,4 @@ $(function () {
     );
     return false;
   });
-
-  //ローディング画面
-  window.onload = function () {
-    const load = document.getElementById("loading");
-    load.classList.add("loaded");
-  };
 });

@@ -3,6 +3,7 @@
 Stylesheet: ベーススタイル
 
 ******************************************************************/
+
 body {
   font-family: quasimoda, "Noto Sans Japanese", sans-serif;
   color: #111;
@@ -14,12 +15,26 @@ body {
   font-weight: normal;
 }
 
+//ローディング以外のコンテンツ全てをローディング画面後フェードイン
+#global-container {
+  opacity: 0;
+  transition: opacity 1.5s;
+  transition-delay: 0.5s;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 a {
-  color: #000;
+  color: #111;
   text-decoration: none;
+  transition: color 0.5s;
 
   &:hover {
-    color: #000;
+    color: $choverColor !important;
     text-decoration: none;
 
     &:focus {
@@ -95,6 +110,12 @@ img {
   color: $cSubTitle;
   text-transform: uppercase;
 }
+.side-title {
+  @extend .font-sm;
+  letter-spacing: 0.2em;
+  color: $cSubTitle;
+  text-transform: uppercase;
+}
 //----logo----//
 .logo {
   display: flex;
@@ -108,7 +129,11 @@ img {
   display: flex;
   flex-direction: column;
 }
+/******************************************************************
 
+html: index.html
+
+******************************************************************/
 //----領域サイズ----//
 
 #container {
@@ -151,7 +176,6 @@ header {
     align-items: center;
     padding: 0;
     margin: 0;
-    list-style: none;
   }
   &__li {
     text-transform: uppercase;
@@ -180,7 +204,7 @@ header {
     font-size: 10px;
   }
 }
-.main {
+.main-content {
   margin-top: 80vh;
 
   position: relative;
@@ -205,13 +229,6 @@ header {
     transition: all 1.5s ease;
   }
 
-  &__category {
-    @extend .font-md;
-    text-transform: uppercase;
-    position: absolute;
-    top: -20px;
-    left: 5%;
-  }
   &__img {
     z-index: 2;
     height: 350px; //高さは画面の大きさで変更
@@ -234,6 +251,7 @@ header {
   &__date {
     @extend .mb-sm;
     @extend .font-xs;
+    color: #111;
   }
   &__text {
     color: $cCaption;
@@ -266,7 +284,6 @@ header {
     @extend .flex;
     padding: 0;
     margin: 0;
-    list-style: none;
   }
 
   &__li,
@@ -337,21 +354,101 @@ header {
 .icon {
   position: relative;
 
-  // @include p-base($left: -20px, $top: 50%, $width: 1em, $height: 1em) {
-  //   transform: translateY(-50%);
-  //   background-position: center;
-  //   background-repeat: no-repeat;
-  //   background-size: contain;
-  // }
-
   &.twitter {
     &::before {
-      background-image: url(../images/twitter.svg);
+      @extend .font-sm;
+      padding-right: 3px;
+      content: "\f081";
+      font-family: "FontAwesome";
     }
   }
-  &.fb {
+  &.insta {
     &::before {
-      background-image: url(../images/facebook.svg);
+      @extend .font-sm;
+      padding-right: 3px;
+      content: "\e055";
+      font-family: "FontAwesome";
+    }
+  }
+}
+/******************************************************************
+
+html: blog.html
+
+******************************************************************/
+
+.blog__main-visual {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(146, 159, 163, 0.7);
+  }
+  &__title {
+    color: $cWhite;
+    @extend .font-lg;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.blog-content {
+  @extend .content-width;
+  @extend .pd-section;
+  @extend .flex;
+  justify-content: space-between;
+
+  .blog-main {
+    .blog__cont {
+      color: #111;
+      & > p,
+      & > img {
+        @extend .mb-md;
+      }
+
+      & .blog__date {
+        margin-right: 10px;
+      }
+      & .blog__category {
+      }
+    }
+  }
+
+  .blog-side {
+    &__cont {
+      @extend .mb-md;
+    }
+
+    &__link {
+      position: relative;
+      padding-left: 15px;
+      &::before {
+        position: absolute;
+        top: 10px;
+        left: 0;
+        width: 10px;
+        height: 1px;
+        padding-right: 3px;
+        content: "";
+        background-color: $cBlack;
+        transition: background-color 0.5s;
+      }
+      &:hover::before {
+        background-color: $choverColor !important;
+      }
     }
   }
 }

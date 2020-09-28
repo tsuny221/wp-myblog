@@ -6,11 +6,12 @@ $cMenuBg: rgba(255, 255, 255, 0.9);
   visibility: hidden; //反応しないよう完全に隠す
   z-index: 100;
   position: fixed;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   margin: 0 auto;
+  transition: all 1s;
 
   &__btn {
     opacity: 0;
@@ -35,7 +36,7 @@ $cMenuBg: rgba(255, 255, 255, 0.9);
       & > svg {
         position: absolute;
         top: -30px;
-        right: -30px;
+        right: -35px;
         fill: #111;
         width: 70px;
         transform: rotate(3deg);
@@ -63,7 +64,6 @@ $cMenuBg: rgba(255, 255, 255, 0.9);
   }
 
   &__item {
-    list-style: none;
     display: block;
     transform: translateX(200px);
     @extend .mb-md;

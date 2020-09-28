@@ -115,7 +115,7 @@
         <!-- ヘッダー-->
         <header class="header">
           <div class="header__inner">
-            <a href="">
+            <a href="index.html">
               <div class="logo">
                 <img src="images/logo.png" alt="" class="logo__img" />
               </div>
@@ -123,7 +123,7 @@
             <nav class="header__nav">
               <ul class="header__ul">
                 <li class="header__li"><a href="">About</a></li>
-                <li class="header__li"><a href="blog.html">Blog</a></li>
+                <li class="header__li"><a href="">Blog</a></li>
                 <li class="header__li"><a href="">Contact</a></li>
               </ul>
             </nav>
@@ -133,89 +133,66 @@
 
         <!-- メイン　ここからindex.php -->
         <div id="content">
-          <div class="slider main-visual">
-            <div class="slider__catch fade-in">
-              <img
-                src="images/logo-white.png"
-                alt=""
-                class="slider__catch__img"
-              />
-              <p class="slider__catch__text">日常をきりとろう</p>
-            </div>
-            <div class="slider__item fade-in">
-              <img src="images/nichijo.jpg" alt="" class="slider__img" />
-              <img src="images/nichijo2.jpg" alt="" class="slider__img" />
-              <img src="images/nichijo3.jpg" alt="" class="slider__img" />
-            </div>
+          <div class="main-visual blog__main-visual">
+            <p class="blog__main-visual__title main-title text-animation pop">
+              Blog
+            </p>
+            <img
+              src="images/sample.jpg"
+              alt=""
+              class="blog__main-visual__img"
+            />
           </div>
-          <main class="main-content">
-            <div class="main-content__inner">
-              <section class="blog">
-                <p class="blog__head main-title">Blog</p>
-                <!-- 記事一個分 -->
-                <a href="#">
-                  <div class="blog__item scroll-up">
-                    <!-- <span class="blog__category">Category</span> -->
-                    <div class="blog__img hover-animation">
-                      <img src="images/melon.jpg" alt="" class="" />
-                    </div>
-                    <div class="blog__cont">
-                      <p class="blog__title">日常を切り取る</p>
-                      <p class="blog__date">2020.07.29</p>
-                      <p class="blog__text">
-                        くまもとアートポリス事業の設計競技を経て実際に建てられた公衆トイレ。
-                        （入選当時は在学中であったため、実施設計及び現場監理はA.I.R（設計事務所/熊本市）と共同体を組み竣工に至る）
-                      </p>
-                    </div>
-                  </div>
-                </a>
-                <a href="#">
-                  <div class="blog__item scroll-up">
-                    <!-- <span class="blog__category">Category</span> -->
-                    <div class="blog__img hover-animation">
-                      <img src="images/melon.jpg" alt="" class="" />
-                    </div>
-                    <div class="blog__cont">
-                      <p class="blog__title">日常を切り取る</p>
-                      <p class="blog__date">2020.07.29</p>
-                      <p class="blog__text">
-                        くまもとアートポリス事業の設計競技を経て実際に建てられた公衆トイレ。
-                        （入選当時は在学中であったため、実施設計及び現場監理はA.I.R（設計事務所/熊本市）と共同体を組み竣工に至る）
-                      </p>
-                    </div>
-                  </div>
-                </a>
-                <a href="#">
-                  <div class="blog__item scroll-up">
-                    <!-- <span class="blog__category">Category</span> -->
-                    <div class="blog__img hover-animation">
-                      <img src="images/melon.jpg" alt="" class="" />
-                    </div>
-                    <div class="blog__cont">
-                      <p class="blog__title">日常を切り取る</p>
-                      <p class="blog__date">2020.07.29</p>
-                      <p class="blog__text">
-                        くまもとアートポリス事業の設計競技を経て実際に建てられた公衆トイレ。
-                        （入選当時は在学中であったため、実施設計及び現場監理はA.I.R（設計事務所/熊本市）と共同体を組み竣工に至る）
-                      </p>
-                    </div>
-                  </div>
-                </a>
-                <a href="blog.html" class="blog__inner">
-                  <div class="blog__item scroll-up">
-                    <!-- <span class="blog__category">Category</span> -->
-                    <div class="blog__img hover-animation">
-                      <img src="images/melon.jpg" alt="" />
-                    </div>
-                    <div class="blog__cont">
-                      <p class="blog__title">日常を切り取る</p>
-                      <p class="blog__date">2020.07.29</p>
-                      <p class="blog__text"></p>
-                    </div>
-                  </div>
-                </a>
-              </section>
-            </div>
+          <!-- 記事 -->
+          <main class="blog-content">
+            <article class="blog-main">
+              <div class="blog__cont">
+                <p class="blog-info fade-up">
+                  <span class="blog__date">2017.01.02</span
+                  ><a href="" class="blog__category">日常</a>
+                </p>
+
+                <p class="main-title fade-up">タイトル</p>
+                <div class="fade-up">
+                  <p>今日は久しぶりに保育園パパ友の会。</p>
+                  <p>
+                    福岡空港（国際線ターミナル）の4F展望デッキと繋がった
+                    オープンエアのビアガーデンのお店へ。
+                    今月はじめにオープンしたばかりのようで、入場制限やコロナ対策は万全のようです。
+                    それこそ換気対策もバッチリですかね。 data：
+                    SORAGAMIAIR（ソラガ・ミエール）／福岡空港国内線ターミナルビル4Fデッキ
+                    2020年8月7日オープン 営業時間：10～22時
+                    飲み放題などコース予約有
+                  </p>
+                </div>
+              </div>
+            </article>
+            <aside class="blog-side blog__cont">
+              <div class="blog-side__cont scroll-up">
+                <p class="side-title">Recent Entry</p>
+                <ul>
+                  <li class="blog-side__li">
+                    <a href="#" class="blog-side__link">タイトル</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="blog-side__cont scroll-up">
+                <p class="side-title">ARCHIVES</p>
+                <ul>
+                  <li class="blog-side__li">
+                    <a href="#" class="blog-side__link">タイトル</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="blog-side__cont scroll-up">
+                <p class="side-title">CATEGORY</p>
+                <ul class="blog-side-title__ul">
+                  <li class="blog-side__li">
+                    <a href="#" class="blog-side__link">タイトル</a>
+                  </li>
+                </ul>
+              </div>
+            </aside>
           </main>
         </div>
         <!-- ここまでindex.php -->
@@ -223,12 +200,10 @@
         <!-- サイドバー　ここからsidebar.php -->
         <aside class="side left">
           <div class="side__inner">
-            <span class="scissors">✂︎</span>---<a
-              class="twitter icon text-animation flash"
-              href="#"
+            <span class="scissors">✂︎</span>---<a class="twitter icon" href="#"
               >Twitter</a
             >
-            <a class="insta icon text-animation flash" href="#">Instagram</a>---
+            <a class="insta icon" href="#">Instagram</a>---
           </div>
         </aside>
         <aside class="side right">
@@ -240,7 +215,9 @@
 
         <!-- フッター　ここからfooter.php -->
         <footer class="footer">
-          <span class="footer__scissors"><div>✂︎</div></span>
+          <span class="footer__scissors">
+            <div>✂︎</div>
+          </span>
           <div class="logo">
             <img src="images/logo.png" alt="" class="logo__img" />
           </div>

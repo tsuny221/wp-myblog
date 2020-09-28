@@ -8,13 +8,12 @@ $(window).scroll(function () {
       $(this).addClass("up");
     }
   });
-});
 
-//aside/headerのフェードイン
-$(window).scroll(function () {
+  //aside/headerのフェードイン
+
   // this(window要素)がどれだけスクロールしたかをscrollTop()を使って値を取る
   $(this).scrollTop();
-  if ($(this).scrollTop() > $(".slider").height() / 1.5) {
+  if ($(this).scrollTop() > $(".main-visual").height() / 1.5) {
     $("header").css({ cssText: "opacity: 1 !important;" });
     $(".mobile-menu__btn").css({ cssText: "opacity: 1 !important;" });
     $(".side").addClass("inview");

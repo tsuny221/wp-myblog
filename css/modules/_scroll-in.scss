@@ -1,10 +1,25 @@
 .scroll-up {
   opacity: 0;
   transform: translateY(50px);
+  transition: all 1s;
 }
 .up {
   opacity: 1;
   transform: none;
+}
 
-  transition: opacity 0.5s;
+.fade-up {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s;
+  transition-delay: 1s;
+  @for $i from 1 through 30 {
+    &:nth-child(#{$i}) {
+      transition-delay: $i * 0.5s;
+    }
+  }
+}
+.up {
+  opacity: 1;
+  transform: none;
 }
