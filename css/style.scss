@@ -20,6 +20,7 @@
 
 @media (min-width: 960px) {
   @import "breakpoints/960up";
+  @import "modules/cut-animation";
 }
 
 @media (min-width: 1280px) {

@@ -13,7 +13,7 @@ $(window).scroll(function () {
 
   // this(window要素)がどれだけスクロールしたかをscrollTop()を使って値を取る
   $(this).scrollTop();
-  if ($(this).scrollTop() > $(".main-visual").height() / 1.5) {
+  if ($(this).scrollTop() > $(".main-visual").height() / 3.5) {
     $("header").css({ cssText: "opacity: 1 !important;" });
     $(".mobile-menu__btn").css({ cssText: "opacity: 1 !important;" });
     $(".side").addClass("inview");

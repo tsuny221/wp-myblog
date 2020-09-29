@@ -239,7 +239,7 @@ header {
       object-fit: cover;
     }
   }
-  &__cont {
+  &__inner {
     flex-basis: 40%;
     padding: 20px 25px 0;
   }
@@ -373,23 +373,26 @@ header {
 }
 /******************************************************************
 
-html: blog.html
+html: blog.html（詳細ページ）
 
 ******************************************************************/
 
-.blog__main-visual {
-  position: relative;
-  width: 100%;
-  height: 50vh;
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
+.main-visual {
+  &__inner {
+    position: relative;
     width: 100%;
-    height: 100%;
-    background-color: rgba(146, 159, 163, 0.7);
+    height: 50vh;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(146, 159, 163, 0.7);
+    }
   }
+
   &__title {
     color: $cWhite;
     @extend .font-lg;
@@ -412,23 +415,27 @@ html: blog.html
   justify-content: space-between;
 
   .blog-main {
-    .blog__cont {
-      color: #111;
-      & > p,
-      & > img {
-        @extend .mb-md;
+    @extend .mb-lg;
+    .blog {
+      //ブログ編集部分のスタイル
+      &__inner {
+        flex-basis: none; //ブログ一覧の場合のみ適用他はnone
+        color: #111;
+        & > p,
+        & > img {
+          @extend .mb-md;
+        }
       }
-
-      & .blog__date {
+      &__date {
         margin-right: 10px;
       }
-      & .blog__category {
+      &__category {
       }
     }
   }
 
   .blog-side {
-    &__cont {
+    &__inner {
       @extend .mb-md;
     }
 
@@ -449,6 +456,83 @@ html: blog.html
       &:hover::before {
         background-color: $choverColor !important;
       }
+    }
+  }
+}
+
+/******************************************************************
+
+html: about.html（プロフページ）
+
+******************************************************************/
+
+.about-content {
+  @extend .content-width;
+  @extend .pd-section;
+
+  .about {
+    &__inner {
+      margin: 0 10%;
+      @extend .flex;
+      justify-content: space-between;
+      .profile {
+        flex-basis: 60%;
+        @extend .mb-lg;
+      }
+      .rope {
+        display: none;
+        position: absolute;
+        top: -80px;
+        left: 20px;
+        width: 1px;
+        height: 80px;
+        background-color: $cBlack;
+      }
+      #scissors {
+        display: none;
+      }
+    }
+  }
+}
+
+// 共通プロフィール
+.profile {
+  &__title {
+    @extend .mb-md;
+  }
+  &__img {
+    width: 100%;
+    height: 300px;
+    @extend .mb-md;
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__text {
+    .name {
+      @extend .font-lr;
+      font-weight: 300;
+      @extend .mb-xs;
+    }
+    .introduction {
+      @extend .font-sm;
+      @extend .mb-xs;
+    }
+  }
+}
+
+.sns {
+  &__title {
+    @extend .mb-sm;
+  }
+  &__li {
+    @extend .mb-sm;
+  }
+  &__link {
+    & > i {
+      padding-right: 10px;
     }
   }
 }

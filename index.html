@@ -3,7 +3,8 @@
 <html lang="ja">
   <head>
     <meta charset="utf8" />
-    <title>Kiritori</title>
+    <title>KIRITORI｜日常をきりとる</title>
+    <link rel="icon" href="images/hasami.svg" />
     <link rel="stylesheet" href="css/vendors/bootstrap-reboot.css" />
     <link
       rel="stylesheet"
@@ -91,7 +92,7 @@
             <img src="images/logo.png" alt="" class="logo__img" />
           </div>
           <li class="mobile-menu__item">
-            <a class="mobile-menu__link" href="#">
+            <a class="mobile-menu__link" href="about.html">
               <span class="main-title">About</span>
               <span class="sub-title">わたしについて</span>
             </a>
@@ -103,7 +104,7 @@
             </a>
           </li>
           <li class="mobile-menu__item">
-            <a class="mobile-menu__link" href="#">
+            <a class="mobile-menu__link" href="contact.html">
               <span class="main-title">Contact</span>
               <span class="sub-title">お問い合わせ</span>
             </a>
@@ -122,9 +123,9 @@
             </a>
             <nav class="header__nav">
               <ul class="header__ul">
-                <li class="header__li"><a href="">About</a></li>
+                <li class="header__li"><a href="about.html">About</a></li>
                 <li class="header__li"><a href="blog.html">Blog</a></li>
-                <li class="header__li"><a href="">Contact</a></li>
+                <li class="header__li"><a href="contact.html">Contact</a></li>
               </ul>
             </nav>
           </div>
@@ -140,7 +141,7 @@
                 alt=""
                 class="slider__catch__img"
               />
-              <p class="slider__catch__text">日常をきりとろう</p>
+              <p class="slider__catch__text">日常をきりとる</p>
             </div>
             <div class="slider__item fade-in">
               <img src="images/nichijo.jpg" alt="" class="slider__img" />
@@ -159,7 +160,7 @@
                     <div class="blog__img hover-animation">
                       <img src="images/melon.jpg" alt="" class="" />
                     </div>
-                    <div class="blog__cont">
+                    <div class="blog__inner">
                       <p class="blog__title">日常を切り取る</p>
                       <p class="blog__date">2020.07.29</p>
                       <p class="blog__text">
@@ -175,7 +176,7 @@
                     <div class="blog__img hover-animation">
                       <img src="images/melon.jpg" alt="" class="" />
                     </div>
-                    <div class="blog__cont">
+                    <div class="blog__inner">
                       <p class="blog__title">日常を切り取る</p>
                       <p class="blog__date">2020.07.29</p>
                       <p class="blog__text">
@@ -191,7 +192,7 @@
                     <div class="blog__img hover-animation">
                       <img src="images/melon.jpg" alt="" class="" />
                     </div>
-                    <div class="blog__cont">
+                    <div class="blog__inner">
                       <p class="blog__title">日常を切り取る</p>
                       <p class="blog__date">2020.07.29</p>
                       <p class="blog__text">
@@ -207,7 +208,7 @@
                     <div class="blog__img hover-animation">
                       <img src="images/melon.jpg" alt="" />
                     </div>
-                    <div class="blog__cont">
+                    <div class="blog__inner">
                       <p class="blog__title">日常を切り取る</p>
                       <p class="blog__date">2020.07.29</p>
                       <p class="blog__text"></p>
@@ -242,13 +243,15 @@
         <footer class="footer">
           <span class="footer__scissors"><div>✂︎</div></span>
           <div class="logo">
-            <img src="images/logo.png" alt="" class="logo__img" />
+            <a href="index.html"
+              ><img src="images/logo.png" alt="" class="logo__img"
+            /></a>
           </div>
           <nav class="footer__nav">
             <ul class="footer__ul">
-              <li class="footer__li"><a href="#">About</a></li>
-              <li class="footer__li"><a href="#">Blog</a></li>
-              <li class="footer__li"><a href="#">Contact</a></li>
+              <li class="footer__li"><a href="about.html">About</a></li>
+              <li class="footer__li"><a href="blog.html">Blog</a></li>
+              <li class="footer__li"><a href="contact.html">Contact</a></li>
             </ul>
             <div class="footer__copyright">&copy; tsuny</div>
           </nav>
@@ -268,6 +271,7 @@
     <script src="js/libs/mobile-menu.js"></script>
     <script src="js/libs/scroll-animation.js"></script>
     <script src="js/libs/text-animation.js"></script>
+    <script src="js/libs/cut-animation.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
   </body>
 </html>
