@@ -6,8 +6,9 @@
   overflow: hidden; //画像がはみ出るのを防ぐ
   &__img {
     height: 100vh;
-    width: auto;
+    width: 100% !important;
     object-fit: cover;
+    object-position: bottom;
     filter: blur(2px);
   }
 

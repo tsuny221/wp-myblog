@@ -142,9 +142,11 @@
 
 .slider__img {
   height: 100vh;
-  width: auto;
+  width: 100% !important;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: bottom;
+     object-position: bottom;
   -webkit-filter: blur(2px);
           filter: blur(2px);
 }
